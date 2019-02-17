@@ -16,13 +16,14 @@ Basic install script that replaces completely the standard VoidLinux installer.
 
 - Boot a VoidLinux LiveCD
 - Setup your network
-- Install Git `xbps-install -S git`
+- Install wget and unzip
 
 Then:
 
 ```
-git clone http://git.mauras.ch/voidlinux/luks-lvm-install.git
-cd luks-lvm-install
+wget https://github.com/egtann/void-luks-lvm-installer/archive/master.zip
+unzip master.zip
+cd void-luks-lvm-installer
 ```
 Edit `config` to your taste.  
 If needed put your `.sh` scripts in custom dir - see examples - before running `install.sh`  
