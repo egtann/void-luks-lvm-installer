@@ -10,17 +10,15 @@ if [ -e ./config ]; then
 else
   PKG_LIST="base-system lvm2 cryptsetup grub"
   HOSTNAME="dom1.internal"
-  KEYMAP="fr_CH"
-  TIMEZONE="Europe/Zurich"
+  KEYMAP="en_US"
+  TIMEZONE="America/Los_Angeles"
   LANG="en_US.UTF-8"
   DEVNAME="sda"
   VGNAME="vgpool"
   CRYPTSETUP_OPTS=""
   SWAP=0
-  SWAPSIZE="16G"
-  LV[root]="10G"
-  LV[var]="5G"
-  LV[home]="512M"
+  SWAPSIZE="2G"
+  LV[root]="18G"
 fi
 
 # Detect if we're in UEFI or legacy mode
@@ -123,7 +121,7 @@ done
 mkdir -p /mnt/var/db/xbps/keys/
 cp -a /var/db/xbps/keys/* /mnt/var/db/xbps/keys/
 
-xbps-install -y -S -R http://repo.voidlinux.eu/current -r /mnt $PKG_LIST
+xbps-install -Sy -R http://a-hel-fi.m.voidlinux.org/current -r /mnt $PKG_LIST
 
 # Do a bit of customization
 echo "[!] Setting root password"
